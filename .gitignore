@@ -1,0 +1,27 @@
+.buildpath
+.hgignore.swp
+.project
+.orig
+.swp
+.idea/
+.settings/
+.vscode/
+composer.lock
+gitpush.sh
+cbuild
+log/
+logs/
+*/.DS_Store
+main
+gf-empty
+.vscode
+/test
+config/sys/test.*
+
+# 常见无用文件
+.DS_Store
+cover.html
+cover.out
+cover.xml
+cover_output
+cover_report.html
