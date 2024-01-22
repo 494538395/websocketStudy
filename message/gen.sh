@@ -1,0 +1,3 @@
+protoc --go_out=plugins=grpc:./proto  ./proto/msg.proto
+
+protoc --go_out=plugins=grpc:./proto  ./proto/paperio.proto

@@ -1,0 +1,163 @@
+syntax = "proto3";
+package paperio;
+option go_package = "./";
+
+
+// 玩家坐标
+message PaperPlayerPosition {
+  float X = 1; // X 坐标
+  float Y = 2; // Y 坐标
+}
+
+// 复活点坐标
+message PaperBirthPosition{
+  int32 X = 1; // X 坐标
+  int32 Y = 2; // Y 坐标
+}
+
+// 像素坐标
+message PaperPixelPosition {
+  int32 X = 1; // X 坐标
+  int32 Y = 2; // Y 坐标
+}
+
+// 道具坐标
+message PaperItemPosition {
+  int32 X = 1; // X 坐标
+  int32 Y = 2; // Y 坐标
+}
+
+// 此协议用作告知客户端，播放游戏开始前的动画、以及机器人玩家ID
+message PaperVideo {
+  map<string, PaperBirthPosition> seat = 1;// 玩家游戏开始复活点位置。 playerID => position
+  repeated string botsID = 2; // 机器人玩家ID
+}
+/*   PaperVideo 协议 参数解读：
+     seat 。 是一个字典，key 表示 playerID ，value 表示游戏开始复活点的坐标。此坐标仅用于游戏开始的初始化位置
+     如：seat[user01] ==> (1,4) 即表示：user01 的游戏开始复活点的坐标 X 是 1，Y 是 4
+ */
+
+// 此协议用作游戏开始时下发游戏数据
+message PaperGameStart {
+  int32 gameSecond = 1; // 一局游戏时长（秒）
+}
+
+// 此协议用作告知目标玩家：你是房主
+// 房主负责发送机器人的坐标、转向、积分
+//（当房主断线，换个人发送）
+message PaperYouAreOwner {
+}
+
+// 强制开始游戏。若人数不够，用 AI 来凑
+message ForceStartWithAi {
+}
+
+
+// 此协议用作同步玩家移动、转向、占地数据
+message PaperMoveReq {
+  string playerID = 1; // 移动的玩家ID
+  PaperPlayerPosition pos = 2; // 新的坐标位置
+  float  dir = 3; // 新的移动方向
+  float score = 4; // 现在的积分。即表示占领地的面积占比，如： 27.02 %
+  bool isMoved = 5; // 是否正在移动
+}
+
+// 此协议用作同步玩家移动、转向、占地数据、排名情况
+message PaperMoveResp {
+  string playerID = 1; // 移动的玩家ID
+  PaperPlayerPosition pos = 2; // 新的坐标位置
+  float  dir = 3; // 新的移动方向
+  PaperPlayerRankList rank = 4; // 玩家排名信息
+  bool isMoved = 5; // 是否正在移动
+}
+
+// 此协议用作描述玩家排名信息
+message PaperPlayerRankList {
+  repeated PaperPlayerRank ranks = 1;
+}
+
+// 此协议用作描述玩家排名信息
+message PaperPlayerRank {
+  string playerID = 1; // 玩家ID
+  float score = 2; // 现在的积分。即表示占领地的面积占比，如： 27.02 %
+  int32 rank = 3; // 玩家排名
+}
+
+// 此协议用作同步击杀行为
+message PaperKill {
+  string killer = 1; // 击杀者玩家ID
+  string victim = 2; // 被击杀玩家ID
+}
+
+// 此协议用作服务器向死亡玩家索要复活点坐标
+message PaperQueryRevivePos {
+  string victim = 1; // 死亡玩家ID
+}
+
+// 此协议用作同步被击杀玩家的复活行为
+message PaperRevive {
+  string reviver = 1; // 复活玩家ID
+  PaperBirthPosition pos = 2; // 复活点坐标
+}
+
+// 此协议用作广播玩家占领格子
+message PaperCapture {
+  string playerID = 1; // 占领玩家ID
+  PaperPixelPosition grid = 2; // 占领的格子坐标
+}
+
+// 此协议用作广播玩家释放技能
+message PaperReleaseSkill {
+  string playerID = 1; // 释放技能的玩家ID
+  float  dir = 2; // 释放角度
+  int32  skillType = 3;// 技能类型
+  float  rocker = 4; // 摇杆长度
+}
+
+// 此协议用作广播玩家释放技能
+message PaperItemGenerated {
+  int32 id = 1; // 道具ID
+  int32 type = 2; // 道具类型
+  PaperItemPosition pos = 3; // 道具坐标
+}
+
+// 此协议用作广播玩家捡到道具
+message PaperItemPick {
+  string playerID = 1; // 捡到道具的玩家ID
+  int32 itemID = 2; // 道具ID
+  int32  type = 3; // 道具类型
+}
+
+// 此协议用作广播游戏结果
+message PaperGameEnd {
+  PaperPlayerRankList rank = 1; // 玩家排名信息
+}
+
+// 此协议用作告知客户端，播放游戏开始前的动画、以及玩家阵营、出生点坐标、机器人ID列表
+message PaperV2Video {
+  map<string, PaperBirthPosition> seat = 1;// 玩家游戏开始复活点位置。 playerID => position
+  map<string, string> teamPlayer = 2;// 玩家队伍信息。 playerID => teamID
+  repeated string botsID = 3; // 机器人玩家ID
+}
+
+// 此协议用作广播游戏结果
+message PaperV2GameEnd {
+  string teamID = 1; // 获胜阵营ID
+  int32 score = 2; // 分数
+}
+
+// 此协议用作广播阵营占领中心区域达到 80%
+message PaperV2Enter {
+  string teamID = 1; // 获胜阵营ID
+}
+
+// 此协议用作广播阵营占领中心区域低于 50%
+message PaperV2Exit {
+  string teamID = 1; // 获胜阵营ID
+}
+
+// 此协议用作广播阵营分数变动
+message PaperV2ScoreAdd {
+  string teamID = 1; // 阵营ID
+  int32 score = 2; // 分数
+}
