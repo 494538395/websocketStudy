@@ -2,59 +2,72 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 
-	myProto "websocketStudy/message/proto"
+	"websocketStudy/partyBattle"
 
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
-	"google.golang.org/protobuf/proto"
 )
 
-var upgrader = websocket.Upgrader{}
+var upgrader = websocket.Upgrader{
+	CheckOrigin: func(r *http.Request) bool {
+		return true
+	},
+}
 
 func main() {
 	r := gin.Default()
 
 	r.GET("/ws", func(c *gin.Context) {
+		//cookies := c.Request.Cookies()
+		//query := c.Request.URL.Query()
+		//fmt.Println("cookies-->", cookies)
+		//fmt.Println("querys-->", query)
 		conn, err := upgrader.Upgrade(c.Writer, c.Request, nil)
 		if err != nil {
 			c.JSON(500, gin.H{"error": err.Error()})
 			return
 		}
 
+		//go partyBattle.TimerTask(conn)
+		var data []byte
+
+		data = partyBattle.GenPartyBattleData(3.14)
+		conn.WriteMessage(websocket.BinaryMessage, data)
+
+		data = partyBattle.GenRewardData()
+		conn.WriteMessage(websocket.BinaryMessage, data)
+
+		data = partyBattle.GenUserRankData("user01", 10, 1)
+		conn.WriteMessage(websocket.BinaryMessage, data)
+
 		for {
-			messageType, p, err := conn.ReadMessage()
+			messageType, p, _ := conn.ReadMessage()
 			fmt.Println("收到消息-->", string(p))
+			fmt.Println("messageType-->", messageType)
 
-			msg := myProto.Msg{}
+			//parsePartyBattle(p)
+			//wfl.ParseWfl(p)
 
-			err = proto.Unmarshal(p, &msg)
-			if err != nil {
-				panic(err)
-			}
-			fmt.Println(msg)
+			//parsePartyBattle(p)
 
-			if err != nil {
-				c.JSON(500, gin.H{"error": err.Error()})
-				return
-			}
+			//str := "接收到了：" + string(p)
+			//str := string(p)
 
-			// 返回消息
-			resp := myProto.PaperPlayerRank{
-				PlayerID: "111",
-				Score:    50,
-				Rank:     1,
-			}
+			//data := partyBattle.GenPartyBattleData(6.66)
+			////data := genPartyBattleData()
+			//conn.WriteMessage(messageType, data)
 
-			bytes, err := proto.Marshal(&resp)
-			if err != nil {
-				panic(err)
-			}
+			//websocket.TextMessage
 
-			if err := conn.WriteMessage(messageType, bytes); err != nil {
-				c.JSON(500, gin.H{"error": err.Error()})
-				return
-			}
+			data = partyBattle.GenGameEndData()
+			conn.WriteMessage(websocket.BinaryMessage, data)
+
+			//if err := conn.WriteMessage(messageType, []byte(jsonData)); err != nil {
+			//	c.JSON(500, gin.H{"error": err.Error()})
+			//	return
+			//}
 		}
 	})
 
@@ -62,5 +75,5 @@ func main() {
 		c.JSON(200, "hello world")
 	})
 
-	r.Run(":8002")
+	r.Run(":8009")
 }

@@ -1,0 +1,17 @@
+syntax = "proto3";
+option go_package = "./";
+
+// s-c交互消息报
+message Packet {
+  string event = 1; // 事件名
+  bytes data = 2; // 消息体
+  uint64 id = 3; // 消息id
+  repeated string address = 4; //
+}
+
+message Paradise {
+  int32 identifier = 1; // 事件名
+  bytes data = 2; // 消息体
+  uint64 id = 3; // 消息id
+  repeated string address = 4; //
+}
