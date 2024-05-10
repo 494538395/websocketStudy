@@ -1,0 +1,13 @@
+syntax = "proto3";
+option go_package = "./";
+
+//@send recruit.query.pool
+message SendMsg {
+  int32 topic = 1;
+}
+
+//@push recruit.query.pool
+message PullMsg {
+  string modelName = 1;
+}
+

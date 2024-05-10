@@ -1,0 +1,12 @@
+syntax = "proto3";
+option go_package ="./";
+import "proto/wrappers.proto";
+package proto;
+
+
+message Config {
+  string name = 1;
+  int32 age =2;
+  google.protobuf.Int32Value needVerification = 3;
+  google.protobuf.Int32Value lookMemberInfo = 4;
+}
