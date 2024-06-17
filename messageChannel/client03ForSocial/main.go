@@ -19,57 +19,35 @@ var (
 	token2011642Test = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIwMTE2NDIsImV4cCI6MTcxODI3MjQwNSwiaXNzIjoiZ2luLWJsb2cifQ.rHufYrnwf-CFV1IURq7LC7rIEL1lkvQfLuRWxkTvW6s"
 	token2011686Test = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIwMTE2ODYsImV4cCI6MTcxODM3MDg0MSwiaXNzIjoiZ2luLWJsb2cifQ.GZvX_rN4lswThcZhLJDL_7Pm1RKTMTWXLNGNbR72eHw"
 
-	token3001Release = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMwMDEsImV4cCI6MTcxOTA2OTQxMywiaXNzIjoiZ2luLWJsb2cifQ.feVxljgxrHJDkW8uHH9V5Wa4y5oqkHg3x0BHHNCt-2Q"
-
-	//tokenTC = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjI2ODUzODI3NzMsImV4cCI6MTcxOTEyNzQ2NH0.HUQPrSc-PHXMfPlul-FFBSvPU2Q7YRPSpp9YeZec6EQ"
-	tokenTC     = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMwMDEsImV4cCI6MTcxOTE0MzUwNCwiaXNzIjoiZ2luLWJsb2cifQ.eMa8G0JXVXZcHPrhLn6mGBwwzfnYtH3OiFaTLTfSqcM"
-	tokenTc3002 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMwMDIsImV4cCI6MTcxOTM5MzE1MywiaXNzIjoiZ2luLWJsb2cifQ.0bz0lnu7lA0xFdy5NO4Rd6a9qRnBGUZOkh3gcYFmrd0"
-	tokenTc3003 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMwMDMsImV4cCI6MTcxOTU1OTA3MiwiaXNzIjoiZ2luLWJsb2cifQ.PSJrwYaqAPd6jVIAWfRkFIGHLryt2zeXCVEG9cJlyCQ"
-
-	tokenIW2786448 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjI3ODY0NDgsImlzcyI6Imdpbi1ibG9nIn0.5eZbFv85K2t6Iazw-esGNpfqtjnjw-t8TkaAGFaJv_A"
-	tokenIw2001    = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIwMDEsImV4cCI6MTcxOTU0NTkzNCwiaXNzIjoiZ2luLWJsb2cifQ.ePMYna1r_vV_0IZG3ezQMvQ5bhQ4Fv2WfDsCHC2hV-s"
-	tokenIW2786999 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjI3ODY5OTksImV4cCI6MTcxOTU0NTkzNCwiaXNzIjoiZ2luLWJsb2cifQ.9U-DNF5dEDYGnTd8jfYKJyKmUsmbyxVPQTZSRKcsqhg"
-	tokenIW9001    = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjkwMDEsImV4cCI6MTcxOTU2OTMzOCwiaXNzIjoiZ2luLWJsb2cifQ.kEyMr2PVIeeJNf6GV6mtrmoNUTCXuvRFPw40cew6c_Q"
-	tokenIW9004    = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjkwMDQsImV4cCI6MTcxOTcyOTMzNCwiaXNzIjoiZ2luLWJsb2cifQ.QRUMuk8wR_FT_KGVVI0AbNailbPV2PSbHuc8qgJYOHs"
-	tokenIW9003    = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjkwMDMsImV4cCI6MTcyMDAxNTg2MywiaXNzIjoiZ2luLWJsb2cifQ.qAsnwr0jh9a9jJsHysTxTaBkgMem8pkwbCGYZG_bxhg"
-
-	tokenBH1001 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEwMDEsImV4cCI6MTcyMDM0ODczMSwiaXNzIjoiZ2luLWJsb2cifQ.wnF3sP85GA--UVThJ-OWn5bemUkq9mD2Pftl8tPc7V8"
-	tokenBH2001 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIwMDEsImV4cCI6MTcyMDM0OTI1MiwiaXNzIjoiZ2luLWJsb2cifQ.0_UYiMKNcd7_aRshXNu7RsDyuYGIjHhTDfpZ90GGSFk"
-
-	paradiseAppId = "250"
-	tcAppId       = "234"
-	iwAppId       = "246"
-	beehiveAppId  = "260"
-
+	appId         = "250"
 	platformAppId = "250"
-	platformId    = "4"
 
-	//nacosGroupId = "social-local"
+	platformId = "4"
+
 	nacosGroupId = "social"
-	//nacosGroupId = "social-feichuan"
+
+	basicInfo = "eyJnYWlkIjoiIiwidWlkIjoiIiwiY3ZjIjowLCJzdmMiOjAsImRldmljZSI6IiIsIm5ldHdvcmsiOiIiLCJzaW1jb2RlIjoiIiwibGFuZyI6IiIsImxzIjoiIiwicGYiOiIiLCJpcCI6IiIsImNvdW50cnkiOiIiLCJhcHBpZCI6MjUwLCJhc3YiOjB9"
 
 	testHost = "10.0.1.84:38015"
-	//debugHost = "10.11.14.7:8001"
-
-	releaseHost = "gate.paradise89.com"
+	//debugHost = "127.0.0.1:8001"
 )
 
 func main() {
 	// header 里面可以不设置东西
-	header := http.Header{}
+	header := http.Header{
+		"appId": []string{"250"},
+	}
 
 	// 连接社交服, path 需要是 /ws/social
-	url := "ws://" + testHost + "/ws/social?"
-	url += "token=" + tokenBH2001 + "&" +
-		"appId=" + beehiveAppId + "&" +
-		"nacosGroup=" + nacosGroupId
+	//url := "ws://" + testHost + "/ws/social?"
+	url := "ws://10.0.1.84:38015/ws/social?"
 	conn, _, err := websocket.DefaultDialer.Dial(
-		url,
-		//"token="+token2011686Test+"&"+ // user的 token,必填
-		//"appid="+paradiseAppId+"&"+ // paradiseAppId 必填,填写业务appId,比如天堂就写250
-		//"nacosGroup="+nacosGroupId, // 写社交服注册 rpc 时的 nacos groupId,一版是 social
-		header,
-	)
+		url+
+			"token="+token2011686Test+"&"+ // user的 token,必填
+			"appid="+appId+"&"+ // appId 必填,填写业务appId,比如天堂就写250
+			"Basic-Info="+basicInfo+"&"+ // basicInfo
+			"nacosGroup="+nacosGroupId, // 写社交服注册 rpc 时的 nacos groupId,一版是 social
+		header)
 	if err != nil {
 		log.Fatal("dial:", err)
 	}
@@ -89,13 +67,9 @@ func main() {
 		}
 
 		// 如果输入的字符是数字1，则打印"hello"
-		if char == '0' {
-			sendMessage(conn, genSingleChatMsg())
-			fmt.Println("私聊")
-		}
 		if char == '1' {
-			sendMessage(conn, genGroupChatMsg())
-			fmt.Println("群聊")
+			sendMessage(conn, genChatMsg())
+			fmt.Println("消息发送成功")
 		}
 		if char == '2' { // 群组推荐
 			sendMessage(conn, genRecommendGroupsClan())
@@ -116,12 +90,12 @@ func main() {
 			fmt.Println("消息发送成功")
 		}
 
-		if char == '6' { // 设置群信息
-			sendMessage(conn, genSetGroupInfoReq())
+		if char == '6' { // 获取自己加的群列表
+			sendMessage(conn, genGetGroupsInfo())
 			fmt.Println("消息发送成功")
 		}
 
-		if char == '7' { // 群推荐
+		if char == '7' { // 获取自己加的群列表
 			sendMessage(conn, genRecommendGroupsClan())
 			fmt.Println("消息发送成功")
 		}
@@ -136,21 +110,41 @@ func main() {
 			fmt.Println("消息发送成功")
 		}
 
-		if char == '.' { // 加
-			sendMessage(conn, genJoinGroupReq())
+		if char == '.' { // 获取 seq
+			sendMessage(conn, genGetTopicSeqReq())
 			fmt.Println("消息发送成功")
 		}
 
-		if char == 'q' { // 加
-			sendMessage(conn, genConvListReq())
-			fmt.Println("消息发送成功")
-		}
-
-		if char == 'w' { // 导出聊天记录
-			sendMessage(conn, genConvListReq())
+		if char == '+' { // upload t
+			sendMessage(conn, genUploadTopicReq())
 			fmt.Println("消息发送成功")
 		}
 	}
+
+	//interrupt := make(chan os.Signal, 1)
+	//signal.Notify(interrupt, os.Interrupt)
+	//ticker := time.NewTicker(time.Second)
+	//defer ticker.Stop()
+	//for {
+	//	select {
+	//	case <-done:
+	//		fmt.Println("调试程序结束")
+	//		return
+	//	case <-ticker.C:
+	//		fmt.Println("连接依然存在")
+	//	case <-interrupt:
+	//		log.Println("interrupt")
+	//
+	//		// Cleanly close the connection by sending a close message and then
+	//		// waiting (with timeout) for the server to close the connection.
+	//		err := conn.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(websocket.CloseNormalClosure, ""))
+	//		if err != nil {
+	//			log.Println("write close:", err)
+	//			return
+	//		}
+	//		return
+	//	}
+	//}
 }
 
 func genProtoMsg() []byte {
@@ -174,35 +168,14 @@ func genProtoMsg() []byte {
 	return bytes
 }
 
-func genGroupChatMsg() []byte {
+func genChatMsg() []byte {
 	req := &Req{
 		Identifier: WSSendMsg,
 		MsgId:      "1",
 		Data: &Req_SendMsgReq{
 			SendMsgReq: &SendMsgReq{
 				Event: ChatSend,
-				Data:  genGroupChatSendReq(),
-				Topic: 11,
-			},
-		},
-	}
-
-	bytes, err := proto.Marshal(req)
-	if err != nil {
-		panic(err)
-	}
-
-	return bytes
-}
-
-func genSingleChatMsg() []byte {
-	req := &Req{
-		Identifier: WSSendMsg,
-		MsgId:      "1",
-		Data: &Req_SendMsgReq{
-			SendMsgReq: &SendMsgReq{
-				Event: ChatSend,
-				Data:  genSingleChatSendReq(),
+				Data:  genChatSendReq(),
 				Topic: 11,
 			},
 		},
@@ -258,6 +231,10 @@ func receiveMessage(conn *websocket.Conn, done chan struct{}) {
 			log.Println("read读到异常:", err)
 			return
 		}
+
+		//sd := &transfer.SendData{}
+		//proto.Unmarshal(message, sd)
+
 		fmt.Printf("接受到消息！！  recv: %s\n", message)
 	}
 }
